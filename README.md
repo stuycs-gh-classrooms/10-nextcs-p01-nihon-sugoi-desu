@@ -29,7 +29,8 @@ What are the core features that your program should have? These should be things
  
  ``` 
  grid{
-  some variable
+ in x,y;
+int width, height;
 
    grid(x, y){}
 
