@@ -37,12 +37,12 @@ int width, height;
    void collision{
 
 if ball.x >= grid[][].x && <= grid[][].x + width {
-disappear }
-
-if ball.y >= grid[][].y && <= grid[][].y + height{
+disappear 
+    if ball.y >= grid[][].y && <= grid[][].y + height{
 disappear }
    }
  }
+}
 
 
 
