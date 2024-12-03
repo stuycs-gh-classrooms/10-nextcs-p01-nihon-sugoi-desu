@@ -47,7 +47,7 @@ disappear }
 
 
  paddle{
-  
+  int x,y;
    paddle(x, y)
  }
 
