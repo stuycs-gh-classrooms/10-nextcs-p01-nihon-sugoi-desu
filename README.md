@@ -42,7 +42,7 @@ disappear
 disappear }
    }
  }
-}
+} //use upper-left corner of irregular sized rect and circles
 
 
 
