@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/2bl0h1Mb)
 # NeXtCS Project 01
-### Name0: Koi, Clayton
-### Name1: Nihon sugoi desu
+### Name0: Koi
+### Name1: Clayton
 ---
 
 ### Overview
@@ -17,7 +17,7 @@ This project will be completed in phases. The first phase will be to work on thi
 
 ## Phase 0: Selection, Analysis & Plan
 
-#### Selected Project: CHOOSE WISELY
+#### Selected Project: Arkanoid
 
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
@@ -25,45 +25,84 @@ What are the core features that your program should have? These should be things
 - separate classes for grid, paddle, and ball
 - collision - check for collision with 1) grid 2) paddle 3) 3 sides 4) bottom
 - life - game start/game over
-- 
+-reset and pause function
+ 
+ ``` 
+ grid{
+  some variable
+
+   grid(x, y){}
+
+   void collision{
+
+  on Collison with ball obj, dissapear  
+   }
+ }
+
+
+
+ paddle{
+  
+   paddle(x, y)
+ }
+
+
+
+ ball {
+  speed variables
+
+  ball(x, y, speeds){}
+
+  void Bounce(){
+    Change speed and direction of ball upon collision 
+}
+
+  
+ }
+ ```
 
 ### Extra Features
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
-YOUR ANSWERS HERE
+If we have time, make the grid faces of teachers or smth.
 
 ### Array Usage
 How will you be using arrays in this project?
 
 1D Array:
-- YOUR ANSER HERE
+Looping through each array of the 2D array individually?
 
 2D Array:
-- YOUR ANSWER HERE
+Store the grid objects
 
 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
 
 Keyboard Commands:
-- LIST OF COMMANDS HERE
+r - reset
+space - to continue after lose life
 
 Mouse Control:
-- Mouse movement:
-- Mouse pressed:
+- Mouse movement: Paddle follows Xmouse
+- Mouse pressed: Left and right keys
 
 
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
-CLASS NAME0
+CLASS grid
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - x, y
 - METHODS
-  - LIST METHODS HERE
+  - collision
 
-CLASS NAME1
+CLASS ball
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - x, y, xspeedLR, yspeedUD
 - METHODS
-  - LIST METHODS HERE
+  - bounce
+ 
+CLASS paddle
+- Instance variables:
+  - x, y
