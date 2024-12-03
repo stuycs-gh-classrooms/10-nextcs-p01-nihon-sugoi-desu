@@ -35,7 +35,11 @@ What are the core features that your program should have? These should be things
 
    void collision{
 
-  on Collison with ball obj, dissapear  
+if ball.x >= grid[][].x && <= grid[][].x + width {
+disappear }
+
+if ball.y >= grid[][].y && <= grid[][].y + height{
+disappear }
    }
  }
 
