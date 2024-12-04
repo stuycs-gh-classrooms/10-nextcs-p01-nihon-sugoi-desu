@@ -1,0 +1,6 @@
+// some basic work on grid class ~ Koi
+class Grid {
+  int rows, cols;
+  int brickWidth, brickHeight; 
+  Brick[][] bricks; // 2D array of Brick objects
+  Grid int 
