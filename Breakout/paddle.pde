@@ -10,6 +10,6 @@ class paddle{
   }
   
   void display(){
-    rect(x, height-20, wid, hei);
+    rect(mouseX-wid/2, height-20, wid, hei);
   }
 }
