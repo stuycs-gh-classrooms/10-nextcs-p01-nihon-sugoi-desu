@@ -1,4 +1,3 @@
-// The Grid class
 class Grid {
   int rows, cols;
   Brick[][] bricks;
@@ -12,6 +11,7 @@ class Grid {
     bricks = new Brick[rows][cols];
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
+        //Don't think need != null here but highly suspect
         int x = j * (width / cols); // x position of the brick
         int y = i * 40 + 50; // y position of the brick (+50 for padding)
         bricks[i][j] = new Brick(x, y, cols);
@@ -43,7 +43,7 @@ class Grid {
   void display() {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        if (bricks[i][j].visible) {
+        if (bricks[i][j] != null) {
           bricks[i][j].display();
         }
       }

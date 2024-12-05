@@ -1,3 +1,4 @@
+
 //Add if bricks[i][j] != null to everything
 
 // some basic work on grid class ~ Koi
@@ -14,10 +15,13 @@ void setup() {
   int cols = 10; 
   
   grid = new Grid(rows, cols);
+  p = new paddle(300, 200, 20);
+  b = new ball(400, 300, 20);
 }
 
 void draw() {
   background(0);
+  
   
   grid.display();
   p.display();
