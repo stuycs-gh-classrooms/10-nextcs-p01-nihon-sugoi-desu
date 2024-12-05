@@ -16,7 +16,7 @@ void setup() {
   
   grid = new Grid(rows, cols);
   p = new paddle(300, 200, 20);
-  b = new ball(400, 300, 20);
+  b = new ball(400, 500, 20);
 }
 
 void draw() {
@@ -37,6 +37,15 @@ void keyPressed(){
       p.x += 10;
     }
     if (key == ' '){
-      b.speedY = 1;
+      if (b.speedY == 0 && b.speedX == 0){
+        b.speedY = 1;
+        b.speedX = 0;
+        
+      }
+      else{
+        b.speedY = 0;
+        b.speedX = 0;
+      }
+      
     }
 }

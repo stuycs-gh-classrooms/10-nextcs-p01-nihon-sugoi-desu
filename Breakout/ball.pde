@@ -9,7 +9,7 @@ class ball {
     this.bsize = bsize;
 
     speedX = 0;
-    speedY = 1;
+    speedY = 0;
   }
 
   void bounce(paddle p) { //set and increase the speed in driver vroom vroom
