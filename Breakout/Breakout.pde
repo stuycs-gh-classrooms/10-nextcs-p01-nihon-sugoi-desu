@@ -26,4 +26,14 @@ void draw() {
   grid.display();
   p.display();
   b.display(); //error prob due to not checking if index of array is null
+
+}
+
+void keyPressed(){
+    if (keyCode == LEFT){
+      p.x -= 10;
+    }
+    if (keyCode == RIGHT)  {
+      p.x += 10;
+    }
 }
