@@ -22,7 +22,7 @@ void setup() {
 void draw() {
   background(0);
   
-  
+  grid.collisionCheck(b);
   grid.display();
   p.display();
   b.display(); //error prob due to not checking if index of array is null
@@ -38,7 +38,7 @@ void keyPressed(){
     }
     if (key == ' '){
       if (b.speedY == 0 && b.speedX == 0){
-        b.speedY = 1;
+        b.speedY = 3;
         b.speedX = 0;
         
       }

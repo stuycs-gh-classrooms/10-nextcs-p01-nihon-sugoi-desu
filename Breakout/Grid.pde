@@ -22,8 +22,10 @@ class Grid {
   void collisionCheck(ball b) {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        if (bricks[i][j] != null) {
+        //if (bricks[i][j] != null) {
+          println("I EXIST");
           if (b.cx >= (bricks[i][j].x)-b.bsize/2 && b.cx <= (bricks[i][j].x + bricks[i][j].w) + b.bsize/2) {
+              println("BAD CHILD");
             b.speedX *= -1;
 
             bricks[i][j] = null;
@@ -32,7 +34,7 @@ class Grid {
             b.speedY *= -1;
 
             bricks[i][j] = null;
-          }
+          //}
         }
       }
     }
