@@ -36,4 +36,7 @@ void keyPressed(){
     if (keyCode == RIGHT)  {
       p.x += 10;
     }
+    if (key == ' '){
+      b.speedY = 1;
+    }
 }

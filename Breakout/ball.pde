@@ -32,6 +32,9 @@ class ball {
   }
   
   void display(){
+    cx -= speedX;
+    cy -= speedY;
+    
     circle(cx, cy, bsize);
   }
   
