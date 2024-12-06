@@ -13,6 +13,11 @@ class ball {
   }
 
   void bounce(paddle p) { //set and increase the speed in driver vroom vroom
+    if (cy == p.y){
+      speedY *= -1;
+    }
+    
+    /*
     if (cx >= width - (bsize/2) || cx >= (bsize/2)) {
       speedX *= -1;
     }
@@ -26,9 +31,9 @@ class ball {
     if (cy >= p.y-p.hei){ //assuming paddle is on roomba mode and sits at max height
       speedY *= -1;
     }
+    */
   
     //brick collision addressed in grid class for some reason
-    
   }
   
   void display(){

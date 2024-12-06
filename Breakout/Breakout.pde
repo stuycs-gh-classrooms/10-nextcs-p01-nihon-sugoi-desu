@@ -1,8 +1,7 @@
 
 //Add if bricks[i][j] != null to everything
 
-// some basic work on grid class ~ Koi
-//Not bad code just not conventional ... 
+//problems: speedX and speedY might be overwritten by other methods/functions, ball not colliding with anything
 
 Grid grid;  
 paddle p;
@@ -26,8 +25,10 @@ void draw() {
   background(0);
   
   grid.collisionCheck(b);
+  
   grid.display();
   p.display();
+  b.bounce(p);
   b.display(); //error prob due to not checking if index of array is null
 
 }
@@ -41,7 +42,7 @@ void keyPressed(){
     }
     if (key == ' '){
       if (b.speedY == 0 && b.speedX == 0){
-        b.speedY = 3;
+        b.speedY = 2;
         b.speedX = 0;
         play = true;
         

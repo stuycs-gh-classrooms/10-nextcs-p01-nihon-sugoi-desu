@@ -4,12 +4,12 @@ class paddle{
   
   paddle(int x, int wid, int hei){
     this.x = x;
-    y = 0;
+    y = height-20;
     this.wid = wid;
     this.hei = hei;
   }
   
   void display(){
-    rect(mouseX-wid/2, height-20, wid, hei);
+    rect(mouseX-wid/2, y, wid, hei);
   }
 }
