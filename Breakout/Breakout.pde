@@ -7,16 +7,19 @@
 Grid grid;  
 paddle p;
 ball b;
+boolean play;
+int rows, cols;
 
 void setup() {
   size(800, 600); 
 
-  int rows = 5;
-  int cols = 10; 
+  rows = 5;
+  cols = 10; 
   
   grid = new Grid(rows, cols);
   p = new paddle(300, 200, 20);
   b = new ball(400, 500, 20);
+  play = false;
 }
 
 void draw() {
@@ -31,21 +34,37 @@ void draw() {
 
 void keyPressed(){
     if (keyCode == LEFT){
-      p.x -= 10;
+      mouseX -= 25;
     }
     if (keyCode == RIGHT)  {
-      p.x += 10;
+      mouseX += 25;
     }
     if (key == ' '){
       if (b.speedY == 0 && b.speedX == 0){
         b.speedY = 3;
         b.speedX = 0;
+        play = true;
         
       }
       else{
         b.speedY = 0;
         b.speedX = 0;
-      }
-      
+        play = false;
+      }  
     }
+    if (key == 'r'){
+       reset();
+    }
+}
+
+
+
+void reset(){
+  rows = 5;
+  cols = 10; 
+  
+  grid = new Grid(rows, cols);
+  p = new paddle(300, 200, 20);
+  b = new ball(400, 500, 20);
+  play = false;
 }

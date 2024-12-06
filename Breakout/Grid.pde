@@ -19,27 +19,26 @@ class Grid {
     }
   }
 
-  void collisionCheck(ball b) {
+  void collisionCheck(ball b) { //so many issues with collision check: Brick dissapear on start and only at the start and unpreditacbly and when the ball is far away, Bad checking code, maybe convert to return bool function instead? 
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
-        //if (bricks[i][j] != null) {
+        if (bricks[i][j] != null) {
+
           println("I EXIST");
-          if (b.cx >= (bricks[i][j].x)-b.bsize/2 && b.cx <= (bricks[i][j].x + bricks[i][j].w) + b.bsize/2) {
-              println("BAD CHILD");
+          if ((b.cx >= (bricks[i][j].x)-b.bsize/2 && b.cx <= (bricks[i][j].x + bricks[i][j].w) + b.bsize/2) || b.cy <= (bricks[i][j].y) - b.bsize/2 && b.cy >= (bricks[i][j].y + bricks[i][j].h) + b.bsize/2) {
             b.speedX *= -1;
-
-            bricks[i][j] = null;
+            println("X Check");
+              if (play == true) {
+                println("Y Check");
+                b.speedY *= -1;
+                bricks[i][j] = null;
+              
+            }
           }
-          if (b.cy <= (bricks[i][j].y) - b.bsize/2 && b.cy >= (bricks[i][j].y + bricks[i][j].h) + b.bsize/2) {
-            b.speedY *= -1;
-
-            bricks[i][j] = null;
-          //}
         }
       }
     }
   }
-
 
   // Display all bricks
   void display() {
