@@ -24,14 +24,20 @@ class Grid {
       for (int j = 0; j < cols; j++) {
         if (bricks[i][j] != null) {
           if (b.collisionCheck(bricks[i][j].midX, bricks[i][j].midY, b.cx, b.cy, bricks[i][j].w, bricks[i][j].h)){
-            bricks[i][j] = null;
-            b.speedX *= -1;
-            b.speedY *= -1;
-          }
+            if (b.cy > bricks[i][j].y && b.cy < bricks[i][j].y + bricks[i][j].h){
+              b.speedX *= -1;
+              bricks[i][j] = null;
+            }
+            else if (b.cx > bricks[i][j].x && b.cx < bricks[i][j].x + bricks[i][j].w){
+              b.speedY *= -1;
+              bricks[i][j] = null;
+            }
+            
             
       }
       }
     }
+  }
   }
 
   // Display all bricks
