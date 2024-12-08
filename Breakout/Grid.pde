@@ -19,34 +19,19 @@ class Grid {
     }
   }
 
-  boolean collisionCheck(ball b) { //so many issues with collision check: Brick dissapear on start and only at the start and unpreditacbly and when the ball is far away, Bad checking code, maybe convert to return bool function instead? 
+  void collisionCheck(ball b) { //so many issues with collision check: Brick dissapear on start and only at the start and unpreditacbly and when the ball is far away, Bad checking code, maybe convert to return bool function instead? 
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         if (bricks[i][j] != null) {
-
-          println("I EXIST");
-          
-          if (((b.cy - b.bsize/2) == (bricks[i][j].y + bricks[i][j].h)) && (b.cx >= bricks[i][j].y  + bricks[i][j].y + bricks[i][j].h)){
-            println("true");
-            return true;
-          }
-          
-          /*
-          if ((b.cx >= (bricks[i][j].x)-b.bsize/2 && b.cx <= (bricks[i][j].x + bricks[i][j].w) + b.bsize/2) || b.cy <= (bricks[i][j].y) - b.bsize/2 && b.cy >= (bricks[i][j].y + bricks[i][j].h) + b.bsize/2) {
+          if (b.collisionCheck(bricks[i][j].midX, bricks[i][j].midY, b.cx, b.cy, bricks[i][j].w, bricks[i][j].h)){
+            bricks[i][j] = null;
             b.speedX *= -1;
-            println("X Check");
-              if (play == true) {
-                println("Y Check");
-                b.speedY *= -1;
-                bricks[i][j] = null;
-              
-            }
+            b.speedY *= -1;
           }
-          */
-        }
+            
+      }
       }
     }
-    return false;
   }
 
   // Display all bricks

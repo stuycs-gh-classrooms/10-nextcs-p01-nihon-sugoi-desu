@@ -5,12 +5,14 @@ class Brick {
   boolean visible; // Whether the brick is still visible
   int cols; 
   int gap;
+  int midX, midY;
 
   // Constructor
   Brick(int x, int y, int cols) {  //feels very awkward adding another parameter just for a minor detail
     this.x = x;
     this.y = y;
     this.cols = cols;
+
 
     gap = int(random(4, 12)); //randomized spacing, the semi-orderness of the og freaks me out
     if ((gap + this.x) < width){
@@ -31,6 +33,8 @@ class Brick {
 
   // Display the brick
   void display() {
+    midX = (x + x + w)/2;
+    midY = (y + y + h)/2;
     fill(brickColor);
     stroke(200); 
     rect(x, y, w, h); //maybe for extra feautres add random value to h and hurt their eyes really bad

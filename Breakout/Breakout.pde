@@ -6,11 +6,12 @@
 Grid grid;  
 paddle p;
 ball b;
-boolean play;
+boolean play; //play as in whether the game is paused or not, rlly confusing but a real hassle to change
 int rows, cols;
 
 void setup() {
   size(800, 600); 
+  stroke(255);
 
   rows = 5;
   cols = 10; 
@@ -34,23 +35,26 @@ void draw() {
 }
 
 void keyPressed(){
+  if (play == false){
     if (keyCode == LEFT){
-      mouseX -= 25;
+      p.x -= 25;
     }
     if (keyCode == RIGHT)  {
-      mouseX += 25;
+      p.x += 25;
     }
+  }
     if (key == ' '){
       if (b.speedY == 0 && b.speedX == 0){
         b.speedY = 2;
-        b.speedX = 0;
-        play = true;
+        b.speedX = int(random(-10, 10));
+        play = false;
         
       }
+    
       else{
         b.speedY = 0;
         b.speedX = 0;
-        play = false;
+        play = true;
       }  
     }
     if (key == 'r'){

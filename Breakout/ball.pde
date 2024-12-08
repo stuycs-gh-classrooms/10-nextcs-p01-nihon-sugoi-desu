@@ -9,35 +9,51 @@ class ball {
     this.bsize = bsize;
 
     speedX = 0;
-    speedY = 0;
+    speedY = -1;
   }
-
-  void bounce(paddle p) { //set and increase the speed in driver vroom vroom
-    if (cy == p.y){
-      speedY *= -1;
-    }
-    
-    /*
-    if (cx >= width - (bsize/2) || cx >= (bsize/2)) {
-      speedX *= -1;
-    }
-    if (cy >= height - (bsize/2)){
-      speedY *= -1;
-    }
-    
-    if (cx <= p.x+p.wid+bsize/2 && cx >= p.x){ //paddle
-      speedX *= -1;
-    }
-    if (cy >= p.y-p.hei){ //assuming paddle is on roomba mode and sits at max height
-      speedY *= -1;
-    }
-    */
   
-    //brick collision addressed in grid class for some reason
+  boolean collisionCheck(int x1, int y1, int x2, int y2, int w, int h){
+    if ((dist(x1, 0, x2, 0) <= (w+bsize)/2) && (dist(0, y1, 0, y2) <= (bsize+h)/2)){
+      return true;
+    }
+    return false;
   }
+  
+  void bounce(paddle p) { //set and increase the speed in driver vroom vroom
+  if (collisionCheck(p.pMidX, p.pMidY, cx, cy, p.wid, p.hei)){
+      println("p.x:" + p.pMidX);
+      println("p.y:" + p.pMidY);
+      println("cx:" + cx);
+      println("cy:" + cy);
+      speedY *= -1;
+    }
+    /*for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        if (bricks[i][j] != null){
+          if (b.collisionCheck(bricks[i][j].midX, bricks[i][j].midY, b.cx, b.cy, bricks[i][j].w, bricks[i][j].h)){
+            bricks[i][j] = null;
+          }
+        }
+      }
+    }*/
+  if (cx + bsize/2 >= width){
+    speedX *= -1;
+  }
+  if (cx - bsize/2 <= 0){
+    speedX *= -1;
+  }
+  if (cy - bsize/2 <= 0){
+  speedY *= -1;
+  }
+  if (cy + bsize/2 >= height){
+    println("YOU LOSE!!!!!");
+  }
+  
+  }
+  //collisionCheck(p.pMidX, p.pMidY, cx, cy, p.wid, p.hei)
   
   void display(){
-    cx -= speedX;
+    cx += speedX;
     cy -= speedY;
     
     circle(cx, cy, bsize);
