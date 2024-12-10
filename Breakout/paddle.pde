@@ -13,9 +13,9 @@ class paddle {
   }
 
   void display() {
-    if (play == false) {
+    if (pause == false) {
        pMidX = (2*(this.x) + this.wid)/2;
-      pMidY = (2*(this.y) + this.hei)/2;
+       pMidY = (2*(this.y) + this.hei)/2;
 
       x = mouseX;
     }

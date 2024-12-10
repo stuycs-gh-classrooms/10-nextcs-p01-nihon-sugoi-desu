@@ -24,6 +24,7 @@ class Grid {
       for (int j = 0; j < cols; j++) {
         if (bricks[i][j] != null) {
           if (b.collisionCheck(bricks[i][j].midX, bricks[i][j].midY, b.cx, b.cy, bricks[i][j].w, bricks[i][j].h)){
+            
             if (b.cy > bricks[i][j].y && b.cy < bricks[i][j].y + bricks[i][j].h){
               b.speedX *= -1;
               bricks[i][j] = null;
@@ -34,13 +35,14 @@ class Grid {
             }
             
             
+            
       }
       }
     }
   }
   }
 
-  // Display all bricks
+  // Dis   all bricks
   void display() {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
