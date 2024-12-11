@@ -1,13 +1,10 @@
 
-//Add if bricks[i][j] != null to everything
-
-//problems: speedX and speedY might be overwritten by other methods/functions, ball not colliding with anything
-
 Grid grid;
 paddle p;
 ball b;
-boolean pause; //play as in whether the game is paused or not, rlly confusing but a real hassle to change
+boolean pause; 
 int rows, cols;
+int lives;
 
 void setup() {
   size(800, 600);
@@ -20,31 +17,34 @@ void setup() {
   p = new paddle(300, 200, 20);
   b = new ball(400, 500, 20);
 
-  pause = false;
+  pause = true;
+  lives = 5;
 }
 
 void draw() {
 
   background(0);
+  fill(130, 255, 240);
+  textAlign(TOP, LEFT);
+  textSize(50);
+  text("Lives:" + lives, 0, LEFT);
+  
   grid.collisionCheck(b);
-
   grid.display();
   p.display();
   b.bounce(p);
-  b.display(); //error prob due to not checking if index of array is null
+  b.display(); 
 }
 
 void keyPressed() {
-  if (pause == false) {
-    if (key == CODED) {
+  if (pause == false) { 
       if (keyCode == LEFT) {
-        p.x -= 25;
+        p.x -= 50;
       }
       if (keyCode == RIGHT) {
-        p.x += 25;
+        p.x += 50;
       }
-    }
-  }
+  } //keyboard event for paddle
   if (key == ' ') {
 
     if (pause == true) {
@@ -52,12 +52,16 @@ void keyPressed() {
     } else {
       pause = true;
     }
-  }
+  } //pause and play game
 
   if (key == 'r') {
-    reset();
+    hardReset();
   }
-}
+} 
+
+void mouseMoved(){
+  p.x = mouseX - p.wid/2;
+} // mouse event for paddle
 
 
 
@@ -65,8 +69,18 @@ void reset() {
   rows = 5;
   cols = 10;
 
+  p = new paddle(300, 200, 20);
+  b = new ball(400, 500, 20);
+  pause = true;
+} //Does not reset lives nor grid
+
+void hardReset(){
+  rows = 5;
+  cols = 10;
+  lives = 5;
+
   grid = new Grid(rows, cols);
   p = new paddle(300, 200, 20);
   b = new ball(400, 500, 20);
-  pause = false;
-}
+  pause = true;
+} //resets entire game
