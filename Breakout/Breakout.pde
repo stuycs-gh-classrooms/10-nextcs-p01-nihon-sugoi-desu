@@ -26,11 +26,8 @@ void setup() {
 }
 
 void draw() {
-  if (lives > 0) {
-    background(0);
-    textSize(30);
-    text(": Lives", 140, 37);
-    
+  if (lives > 0) { 
+     background(0);
     // Display lives as hearts
     for (int i = 0; i < lives; i++) {
       image(heart, i * 50, 10);
@@ -48,9 +45,13 @@ void draw() {
     textAlign(CENTER, CENTER);
     textSize(50);
     text("YOU LOSE! Press R to restart", width / 2, height / 2);
+    
+    // Check for key press to reset the game
+    if (keyPressed && key == 'r') {
+      hardReset();  // Reset the game when 'r' is pressed
+    }
   }
 }
-
 
 
 void keyPressed() {
@@ -88,13 +89,11 @@ void reset() {
   pause = true;
 } //Does not reset lives nor grid
 
-void hardReset(){
-  rows = 5;
-  cols = 10;
-  lives = 3;
-
-  grid = new Grid(rows, cols);
-  p = new paddle(300, 200, 20);
-  b = new ball(400, 500, 20);
-  pause = true;
-} //resets entire game
+void hardReset() {
+  // Reset all game variables to their initial states
+  p = new paddle(300, 200, 20);  // Reset paddle
+  b = new ball(400, 500, 20);    // Reset ball
+  grid = new Grid(rows, cols);   // Reset the grid
+  lives = 3;                     // Reset lives
+  pause = false;                 // Unpause the game to start fresh
+}
