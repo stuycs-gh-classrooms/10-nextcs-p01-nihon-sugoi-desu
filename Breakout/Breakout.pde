@@ -11,7 +11,7 @@ void setup() {
   stroke(255);
 
 // Load a heart image for the lives counter
-  heart = loadImage("heart.png");
+  heart = loadImage("asset/heart.png");
   heart.resize(40, 40); // Resize to fit the display
   
   rows = 5;
