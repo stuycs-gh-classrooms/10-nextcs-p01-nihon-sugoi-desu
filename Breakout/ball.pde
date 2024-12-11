@@ -60,21 +60,23 @@ class ball {
   } //bounce
 
   void display() {
-      if (cy + bsize/2 >= height) {
-        println("LOoSsE");
-        println("cx when out:" + b.cx);
-        println("cy when out" + b.cy);
-        lives -= 1;
-        reset();
-      if (lives < 1) {
-        hardReset();
-      }
-    } //when ball out of bounds
+  if (cy + bsize / 2 >= height) {  // Ball is out of bounds
+    println("LOoSsE");
+    println("cx when out:" + b.cx);
+    println("cy when out" + b.cy);
     
-    if (pause == false) {
-      cx += speedX;
-      cy -= speedY;
-    } //pause
-    circle(cx, cy, bsize);
-  } // display ball
+    lives -= 1;  // Decrease lives
+    if (lives > 0) {
+      reset();  // Reset the game for next life
+    } else {
+      hardReset();  // Reset everything when lives run out
+    }
+  }  // when ball goes out of bounds
+
+  if (!pause) {
+    cx += speedX;
+    cy -= speedY;
+  }
+  circle(cx, cy, bsize);  // Display the ball
+}
 }
