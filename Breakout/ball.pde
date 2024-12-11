@@ -68,9 +68,7 @@ class ball {
     lives -= 1;  // Decrease lives
     if (lives > 0) {
       reset();  // Reset the game for next life
-    } else {
-      hardReset();  // Reset everything when lives run out
-    }
+    } 
   }  // when ball goes out of bounds
 
   if (!pause) {
